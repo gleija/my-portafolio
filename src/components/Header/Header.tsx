@@ -1,14 +1,9 @@
 import { useRef } from "react";
 
+import { MAIN_CONTENT_ID, navigation, sections } from "./sections/sections";
+import { profile, socialLinks } from "./profile/profile";
 import * as styles from "./header.css";
 import { useActiveSection } from "./useActiveSection";
-
-const navigation = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-];
 
 const sectionIds = navigation.map(({ id }) => id);
 
@@ -18,25 +13,33 @@ const Header = (): React.JSX.Element => {
 
   return (
     <header ref={headerRef} className={styles.siteHeader}>
-      <a className={styles.brand} href="#about">
-        Gary Leija
+      <a className={styles.skipLink} href={`#${MAIN_CONTENT_ID}`}>
+        Skip to main content
       </a>
 
-      <nav className={styles.nav} aria-label="Main navigation">
-        {navigation.map((item) => (
-          <a
-            key={item.id}
-            href={`#${item.id}`}
-            className={
-              activeSection === item.id
-                ? `${styles.navLink} ${styles.navLinkActive}`
-                : styles.navLink
-            }
-            aria-current={activeSection === item.id ? "location" : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
+      <a className={styles.brand} href={`#${sections.about}`}>
+        {profile.name}
+      </a>
+
+      <nav className={styles.nav} aria-label="Main">
+        {navigation.map((item) => {
+          const isActive = activeSection === item.id;
+
+          return (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={
+                isActive
+                  ? `${styles.navLink} ${styles.navLinkActive}`
+                  : styles.navLink
+              }
+              aria-current={isActive ? "location" : undefined}
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </nav>
 
       <div className={styles.headerActions}>
@@ -45,42 +48,27 @@ const Header = (): React.JSX.Element => {
           role="group"
           aria-label="Social profiles"
         >
-          <a
-            className={styles.socialIconLink}
-            href="https://github.com/gleija"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub profile (opens in new tab)"
-            title="GitHub"
-          >
-            <img
-              className={styles.socialIcon}
-              src="/icons/github.svg"
-              alt=""
-              width="20"
-              height="20"
-            />
-          </a>
-
-          <a
-            className={styles.socialIconLink}
-            href="https://www.linkedin.com/in/edgar-leija"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn profile (opens in new tab)"
-            title="LinkedIn"
-          >
-            <img
-              className={styles.socialIcon}
-              src="/icons/linkedin.svg"
-              alt=""
-              width="20"
-              height="20"
-            />
-          </a>
+          {socialLinks.map((link) => (
+            <a
+              key={link.id}
+              className={styles.socialIconLink}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${link.label} profile (opens in new tab)`}
+            >
+              <img
+                className={styles.socialIcon}
+                src={link.icon}
+                alt=""
+                width="20"
+                height="20"
+              />
+            </a>
+          ))}
         </div>
 
-        <a className={styles.contactLink} href="mailto:edgarleija@gmail.com">
+        <a className={styles.contactLink} href={`mailto:${profile.email}`}>
           Get in touch
         </a>
       </div>

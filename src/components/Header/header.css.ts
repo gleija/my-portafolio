@@ -243,3 +243,20 @@ export const contactLink = style([
     },
   },
 ]);
+
+export const skipLink = style({
+  position: "absolute",
+  top: 0,
+  left: 16,
+  padding: "10px 16px",
+  borderRadius: 5,
+  background: "#426cf5",
+  color: "#fff",
+  fontSize: 14,
+  fontWeight: 600,
+  textDecoration: "none",
+  transform: "translateY(-120%)",
+  ":focus": {
+    transform: "translateY(16px)",
+  },
+});
