@@ -1,203 +1,8 @@
-import { useEffect, useState } from "react";
+import Header from "./components/Header/Header";
 import "./App.css";
-
-const navigation = [
-  { id: "about", label: "About" },
-  { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-];
-
-const experience = [
-  {
-    period: "2024 — 2026",
-    location: "Tokyo, Japan",
-    role: "Senior Software Engineer (Frontend)",
-    industry: "Japan's Leading Enterprise Collaboration Software Provider",
-    website: "https://cybozu.co.jp/",
-    description:
-      "Took primary engineering ownership of a React and TypeScript design system, working on component development, modernization, accessibility, and keeping components aligned with design requirements. Focused on reusable component APIs and improving the developer experience for product teams.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Design Systems",
-      "Accessibility",
-      "vanilla-extract",
-    ],
-  },
-  {
-    period: "2023",
-    location: "Tokyo, Japan",
-    role: "Senior Software Engineer (Frontend)",
-    industry: "Global Internet Services & Digital Commerce Group",
-    website: "https://www.rakuten.co.jp/",
-    description:
-      "Worked on a major checkout page revamp, improving the user experience and helping increase conversion rates. Also contributed to the development and maintenance of a React-based design system, building reusable components to support consistency across teams and applications.",
-    technologies: ["React", "TypeScript", "CSS"],
-  },
-  {
-    period: "2013 — 2023",
-    location: "Melbourne, Australia",
-    role: "Senior Software Engineer",
-    industry:
-      "Market-Leading Employment Technology Platform — Australia & APAC",
-    website: "https://www.seek.com.au/",
-    description:
-      "Spent more than 10 years building and improving recruitment software, working across frontend development, backend integrations, and engineering practices.\n\nOver the years, I worked on a wide range of projects and initiatives. Some highlights include building candidate management applications, developing Role Requirements features that helped hirers filter and shortlist candidates, contributing to the migration from a monolithic architecture to AWS-based cloud services, and moving from REST APIs to GraphQL.\n\nI was also part of the engineering teams that transitioned from waterfall to agile development, experiencing firsthand how more collaborative and iterative ways of working changed the way we built and delivered software.",
-    technologies: ["React", "TypeScript", "GraphQL", "AWS", "Node.js"],
-  },
-];
-
-const skills = [
-  {
-    number: "01",
-    title: "Frontend Engineering",
-    description:
-      "Building scalable, maintainable web applications with modern JavaScript and React architectures.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "JavaScript",
-      "Redux Toolkit",
-      "React Router",
-      "SSR / CSR",
-      "State Management",
-    ],
-  },
-  {
-    number: "02",
-    title: "Design Systems & UI Architecture",
-    description:
-      "Creating reusable component foundations that support consistency, accessibility, and developer experience.",
-    technologies: [
-      "Component Libraries",
-      "Accessibility",
-      "Storybook",
-      "Design Tokens",
-      "CSS Architecture",
-      "vanilla-extract",
-    ],
-  },
-  {
-    number: "03",
-    title: "Backend & Cloud",
-    description:
-      "Working with REST and GraphQL APIs, Node.js backend services, and AWS infrastructure. Experience with serverless architectures using Lambda, SQS, SNS, and DynamoDB for asynchronous processing, messaging, and data persistence, alongside S3 for cloud storage.",
-    technologies: [
-      "Node.js",
-      "Express",
-      "GraphQL",
-      "REST APIs",
-      "AWS Lambda",
-      "DynamoDB",
-      "SQS",
-      "SNS",
-      "S3",
-    ],
-  },
-  {
-    number: "04",
-    title: "Testing & Engineering Quality",
-    description:
-      "Experience across unit, integration, and end-to-end testing using Jest, React Testing Library, and Cypress. Applying automated testing, code reviews, and continuous integration practices to improve software reliability and maintainability.",
-    technologies: [
-      "Jest",
-      "React Testing Library",
-      "Cypress",
-      "Test Automation",
-      "Code Reviews",
-      "CI/CD",
-    ],
-  },
-  {
-    number: "05",
-    title: "Developer Tooling & Delivery",
-    description:
-      "Experience with frontend build tools and development workflows using Webpack, Vite, and pnpm, alongside CI/CD pipelines using Buildkite and GitHub Actions. Also worked with Docker and AWS CDK to support application development, infrastructure configuration, and deployment processes.",
-    technologies: [
-      "Vite",
-      "pnpm",
-      "Webpack",
-      "Docker",
-      "GitHub Actions",
-      "Jenkins",
-      "Buildkite",
-      "AWS CDK",
-    ],
-  },
-  {
-    number: "06",
-    title: "AI-Augmented Engineering",
-    description:
-      "Exploring how AI-assisted tools can support software development, from understanding unfamiliar codebases and reviewing implementations to improving development workflows. Combining AI assistance with established engineering practices, critical thinking, and human validation.",
-    technologies: [
-      "AI-Assisted Development",
-      "Prompt Engineering",
-      "Structured AI Workflows",
-      "LLM-Assisted Code Analysis",
-    ],
-  },
-];
-
-const projects = [
-  {
-    number: "01",
-    period: "2024 — 2026",
-    category: "FRONTEND ARCHITECTURE / DESIGN SYSTEMS",
-    title: "Enterprise Design System Modernization",
-    subtitle:
-      "Modernizing a shared component library for enterprise software products.",
-    overview:
-      "My work focused on developing reusable React and TypeScript components, migrating styling from Emotion to vanilla-extract, improving accessibility, and implementing approved design specifications across the component library.",
-    challenge:
-      "The component library needed to evolve alongside its design requirements while supporting existing product teams. This involved modernizing styling patterns, defining clearer component APIs, and ensuring visual and behavioral consistency.",
-    contribution:
-      "Took primary engineering responsibility for component modernization, including migrating components from Emotion to vanilla-extract, refining React and TypeScript APIs, implementing accessibility behavior, and documenting component usage in Storybook.",
-    process:
-      "Worked with Figma specifications and design guidance to implement component anatomy, variants, states, and responsive behavior. Used Storybook to document and review implementations, with iterative feedback and code review throughout development.",
-    outcome:
-      "Delivered and advanced reusable component implementations and documentation as part of the broader modernization effort, helping establish a clearer foundation for consistent UI development and future component adoption.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "Figma",
-      "Storybook",
-      "vanilla-extract",
-      "Emotion",
-      "Accessibility",
-      "Design Tokens",
-    ],
-  },
-  {
-    number: "02",
-    period: "During 2013 — 2023",
-    category: "FRONTEND ARCHITECTURE / GRAPHQL / CLOUD INTEGRATION",
-    title: "Candidate Management Platform & GraphQL Integration",
-    subtitle:
-      "Building and improving a candidate management application used by recruitment teams.",
-    overview:
-      "My work focused on developing React and TypeScript features for candidate management, integrating GraphQL APIs for candidate retrieval, filtering, and status updates, and contributing to asynchronous backend processing using AWS services.",
-    challenge:
-      "Candidate management involves interconnected workflows: retrieving candidate profiles, filtering applications, managing statuses, and keeping the user interface consistent with backend data. Evolving these workflows required integrating modern frontend architecture with GraphQL services and asynchronous backend processing.",
-    contribution:
-      "Worked on a production React application using TypeScript, MobX-based state management, and GraphQL. Contributed to candidate data queries, filtering functionality, status management, frontend testing, and selected AWS Lambda changes in collaboration with backend engineers.",
-    process:
-      "Used GraphQL queries and mutations to integrate candidate management features with backend services. Developed GraphQL mocks to support isolated frontend development and test scenarios, including pagination, filtering, empty results, and error handling. Worked with asynchronous status processing and frontend refresh behavior to account for eventual consistency.",
-    outcome:
-      "Contributed to the ongoing evolution of a production candidate management platform, improving the implementation and test coverage of candidate-management workflows. Supported changes across frontend and backend boundaries while maintaining a clear division of responsibility with backend service owners.",
-    technologies: [
-      "React",
-      "TypeScript",
-      "GraphQL",
-      "MobX",
-      "AWS Lambda",
-      "SQS",
-      "DynamoDB",
-      "Jest",
-      "API Integration",
-    ],
-  },
-];
+import { experience } from "./sections/Experience/experience.data";
+import { skills } from "./sections/Skills/skills.data";
+import { projects } from "./sections/Projects/projects.data";
 
 function DesignSystemDiagram() {
   const steps = [
@@ -246,7 +51,6 @@ function DesignSystemDiagram() {
       ],
     },
   ];
-
   return (
     <div
       className="project-diagram"
@@ -292,7 +96,6 @@ function DesignSystemDiagram() {
     </div>
   );
 }
-
 function CandidateManagementDiagram() {
   return (
     <div
@@ -364,110 +167,10 @@ function CandidateManagementDiagram() {
     </div>
   );
 }
-
-function App() {
-  const [activeSection, setActiveSection] = useState("about");
-
-  useEffect(() => {
-    const sections = navigation
-      .map(({ id }) => document.getElementById(id))
-      .filter((element): element is HTMLElement => element !== null);
-
-    if (sections.length === 0) return;
-
-    let frame = 0;
-    const updateActiveSection = () => {
-      const header = document.querySelector<HTMLElement>(".site-header");
-      const headerHeight = header?.getBoundingClientRect().height ?? 0;
-      const activationLine = headerHeight + 48;
-      let currentSection = sections[0].id;
-
-      for (const section of sections) {
-        if (section.getBoundingClientRect().top <= activationLine) {
-          currentSection = section.id;
-        }
-      }
-
-      const atPageBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 4;
-
-      if (atPageBottom) currentSection = sections[sections.length - 1].id;
-      setActiveSection((previous) =>
-        previous === currentSection ? previous : currentSection,
-      );
-    };
-
-    const scheduleUpdate = () => {
-      if (frame !== 0) return;
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        updateActiveSection();
-      });
-    };
-
-    updateActiveSection();
-    window.addEventListener("scroll", scheduleUpdate, { passive: true });
-    window.addEventListener("resize", scheduleUpdate);
-
-    return () => {
-      window.removeEventListener("scroll", scheduleUpdate);
-      window.removeEventListener("resize", scheduleUpdate);
-      if (frame !== 0) window.cancelAnimationFrame(frame);
-    };
-  }, []);
-
+const App = (): React.JSX.Element => {
   return (
     <main className="portfolio">
-      <header className="site-header">
-        <a className="brand" href="#about">
-          Gary Leija
-        </a>
-        <nav className="site-navigation" aria-label="Main navigation">
-          {navigation.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={
-                activeSection === item.id
-                  ? "nav-link nav-link-active"
-                  : "nav-link"
-              }
-              aria-current={activeSection === item.id ? "location" : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="header-actions">
-          <div className="header-social-links" aria-label="Social profiles">
-            <a
-              className="social-icon-link"
-              href="https://github.com/gleija"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile (opens in new tab)"
-              title="GitHub"
-            >
-              <img src="/icons/github.svg" alt="" width="20" height="20" />
-            </a>
-            <a
-              className="social-icon-link"
-              href="https://www.linkedin.com/in/edgar-leija"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn profile (opens in new tab)"
-              title="LinkedIn"
-            >
-              <img src="/icons/linkedin.svg" alt="" width="20" height="20" />
-            </a>
-          </div>
-          <a className="contact-link" href="mailto:edgarleija@gmail.com">
-            Get in touch
-          </a>
-        </div>
-      </header>
-
+      <Header />
       <section className="hero" id="about">
         <p className="eyebrow">SOFTWARE ENGINEER / FRONTEND SPECIALIST</p>
         <h1>
@@ -483,7 +186,6 @@ function App() {
           Explore my work →
         </a>
       </section>
-
       <section className="experience-section" id="experience">
         <div className="section-heading">
           <p className="eyebrow">01 / PROFESSIONAL EXPERIENCE</p>
@@ -535,7 +237,6 @@ function App() {
           </p>
         </div>
       </section>
-
       <section className="skills-section" id="skills">
         <div className="section-heading">
           <p className="eyebrow">02 / TECHNICAL EXPERTISE</p>
@@ -573,7 +274,6 @@ function App() {
           ))}
         </div>
       </section>
-
       <section className="projects-section" id="projects">
         <div className="section-heading">
           <p className="eyebrow">03 / SELECTED ENGINEERING WORK</p>
@@ -585,7 +285,6 @@ function App() {
             technical decisions.
           </p>
         </div>
-
         <div className="projects-list">
           {projects.map((project) => (
             <article className="project-card" key={project.number}>
@@ -648,6 +347,6 @@ function App() {
       </section>
     </main>
   );
-}
+};
 
 export default App;
