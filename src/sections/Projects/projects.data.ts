@@ -1,6 +1,24 @@
-export const projects = [
+export type DiagramId = "design-system" | "candidate-management";
+
+export type Project = {
+  number: string;
+  diagram: DiagramId;
+  period: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  overview: string;
+  challenge: string;
+  contribution: string;
+  process: string;
+  outcome: string;
+  technologies: readonly string[];
+};
+
+export const projects: readonly Project[] = [
   {
     number: "01",
+    diagram: "design-system",
     period: "2024 — 2026",
     category: "FRONTEND ARCHITECTURE / DESIGN SYSTEMS",
     title: "Enterprise Design System Modernization",
@@ -29,6 +47,7 @@ export const projects = [
   },
   {
     number: "02",
+    diagram: "candidate-management",
     period: "During 2013 — 2023",
     category: "FRONTEND ARCHITECTURE / GRAPHQL / CLOUD INTEGRATION",
     title: "Candidate Management Platform & GraphQL Integration",

@@ -61,7 +61,6 @@ export const pathNode = style([
   },
 ]);
 
-// These rules are scoped to the nodes in this component.
 globalStyle(`${node} h4`, {
   margin: "0 0 8px",
   color: "#f5f5f7",

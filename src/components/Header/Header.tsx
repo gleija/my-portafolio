@@ -7,7 +7,7 @@ import { useActiveSection } from "./useActiveSection";
 
 const sectionIds = navigation.map(({ id }) => id);
 
-const Header = (): React.JSX.Element => {
+export const Header = (): React.JSX.Element => {
   const headerRef = useRef<HTMLElement>(null);
   const activeSection = useActiveSection(headerRef, sectionIds);
 
@@ -75,5 +75,3 @@ const Header = (): React.JSX.Element => {
     </header>
   );
 };
-
-export default Header;
