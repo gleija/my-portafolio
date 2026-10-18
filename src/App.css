@@ -1,0 +1,1562 @@
+/* ========================================*
+
+    Portfolio — Main Layout
+
+    ======================================== \*/
+
+.portfolio {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(ellipse at 90% 15%, #211839 0%, transparent 45%), #0b0b0d;
+
+  color: #f5f5f7;
+}
+
+/* ========================================*
+
+    Global Section Navigation
+
+    ======================================== \*/
+
+html {
+  scroll-behavior: smooth;
+
+  scroll-padding-top: 80px;
+}
+
+section[id] {
+  scroll-margin-top: 0;
+}
+
+/* ========================================*
+
+    Sticky Navigation
+
+    ======================================== \*/
+
+.site-header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 100;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 24px;
+
+  min-height: 80px;
+
+  padding: 16px 5%;
+
+  border-bottom: 1px solid #37313f;
+
+  background: rgba(13, 12, 18, 0.88);
+
+  -webkit-backdrop-filter: blur(18px);
+
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  flex-shrink: 0;
+
+  color: #fff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.site-header nav {
+  display: flex;
+
+  align-items: center;
+
+  gap: 32px;
+}
+
+.site-header a {
+  color: #d0d0d5;
+
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: #fff;
+}
+
+.site-navigation .nav-link {
+  position: relative;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 44px;
+
+  padding: 9px 0;
+
+  color: #a6a3ae;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.site-navigation .nav-link::after {
+  position: absolute;
+
+  right: 0;
+
+  bottom: 2px;
+
+  left: 0;
+
+  height: 2px;
+
+  border-radius: 2px;
+
+  background: #b8a4ff;
+
+  content: "";
+
+  opacity: 0;
+
+  transform: scaleX(0.55);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.site-navigation .nav-link:hover,
+.site-navigation .nav-link-active {
+  color: #f5f5f7;
+}
+
+.site-navigation .nav-link-active::after {
+  opacity: 1;
+
+  transform: scaleX(1);
+}
+
+.site-navigation .nav-link:focus-visible,
+.brand:focus-visible,
+.contact-link:focus-visible,
+.primary-button:focus-visible {
+  outline: 2px solid #b8a4ff;
+
+  outline-offset: 5px;
+
+  border-radius: 3px;
+}
+
+/* Social profiles and contact CTA */
+
+.header-actions {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 16px;
+
+  flex-shrink: 0;
+}
+
+.header-social-links {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.site-header .social-icon-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid transparent;
+
+  border-radius: 8px;
+
+  color: #d0d0d5;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.site-header .social-icon-link:hover {
+  border-color: #51406b;
+
+  background: rgba(126, 92, 210, 0.15);
+}
+
+.social-icon-link img {
+  display: block;
+
+  width: 20px;
+
+  height: 20px;
+
+  filter: invert(85%);
+}
+
+.social-icon-link:hover img {
+  filter: invert(100%);
+}
+
+.social-icon-link:focus-visible {
+  outline: 2px solid #b8a4ff;
+
+  outline-offset: 3px;
+}
+
+.contact-link {
+  flex-shrink: 0;
+
+  border: 1px solid #44444c;
+
+  border-radius: 6px;
+
+  padding: 12px 18px;
+
+  font-size: 14px;
+
+  white-space: nowrap;
+}
+
+/* ========================================*
+
+    Hero
+
+    ======================================== \*/
+
+.hero {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 140px 5% 130px;
+}
+
+.eyebrow {
+  color: #a6a0b6;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 32px 0;
+
+  font-size: clamp(64px, 8vw, 116px);
+
+  font-weight: 750;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.065em;
+}
+
+.hero h1 em {
+  font-weight: 650;
+}
+
+.introduction {
+  max-width: 610px;
+
+  color: #babac4;
+
+  font-size: 19px;
+
+  line-height: 1.75;
+}
+
+.primary-button {
+  display: inline-block;
+
+  margin-top: 32px;
+
+  padding: 18px 28px;
+
+  background: #426cf5;
+
+  border-radius: 5px;
+
+  color: #fff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+.primary-button:hover {
+  background: #5c82ff;
+}
+
+/* ========================================*
+
+    Shared Section Headings and Dividers
+
+    ======================================== \*/
+
+.section-heading {
+  position: relative;
+
+  max-width: 740px;
+
+  margin-bottom: 64px;
+}
+
+.section-heading h2 {
+  margin: 20px 0;
+
+  font-size: clamp(36px, 5vw, 64px);
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
+}
+
+.section-heading > p:last-child {
+  color: #babac4;
+
+  line-height: 1.75;
+}
+
+.experience-section,
+.skills-section,
+.projects-section {
+  position: relative;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  border-top: 1px solid #4c405d;
+}
+
+.experience-section::before,
+.skills-section::before,
+.projects-section::before {
+  position: absolute;
+
+  top: -2px;
+
+  left: 5%;
+
+  width: min(220px, 42%);
+
+  height: 3px;
+
+  border-radius: 3px;
+
+  background: linear-gradient(90deg, #b8a4ff 0%, #68538f 55%, transparent 100%);
+
+  content: "";
+
+  pointer-events: none;
+}
+
+/* ========================================*
+
+    Professional Experience
+
+    ======================================== \*/
+
+.experience-section {
+  padding: 110px 5%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(27, 23, 36, 0.12) 0%,
+    rgba(11, 11, 13, 0) 58%
+  );
+}
+
+.experience-item {
+  display: grid;
+
+  grid-template-columns: 220px minmax(0, 1fr);
+
+  gap: 48px;
+
+  padding: 40px 0;
+
+  border-top: 1px solid #29292d;
+}
+
+.experience-meta {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+
+  color: #9d9da9;
+
+  font-size: 13px;
+}
+
+.experience-details h3 {
+  margin: 0 0 12px;
+
+  font-size: 25px;
+}
+
+.experience-industry {
+  color: #b8a4ff;
+
+  font-weight: 600;
+}
+
+.experience-details > p:not(.experience-industry) {
+  max-width: 740px;
+
+  margin-top: 16px;
+
+  color: #babac4;
+
+  line-height: 1.7;
+
+  white-space: pre-line;
+}
+
+.experience-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 24px;
+}
+
+.experience-tags span {
+  padding: 7px 12px;
+
+  border: 1px solid #37313f;
+
+  border-radius: 5px;
+
+  color: #c8c2d4;
+
+  font-size: 12px;
+}
+
+.experience-details .experience-link {
+  display: flex;
+
+  width: fit-content;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 40px;
+
+  padding: 0;
+
+  color: #b8a4ff;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+.experience-details .experience-link:hover {
+  color: #fff;
+
+  text-decoration: underline;
+}
+
+.experience-details .experience-link:focus-visible {
+  outline: 2px solid #b8a4ff;
+
+  outline-offset: 5px;
+
+  border-radius: 2px;
+}
+
+.international-note {
+  margin-top: 48px;
+
+  padding: 32px;
+
+  border: 1px solid #37313f;
+
+  border-radius: 12px;
+
+  background: rgba(126, 92, 210, 0.06);
+}
+
+.international-note h3 {
+  margin: 16px 0;
+
+  font-size: 28px;
+
+  letter-spacing: -0.03em;
+}
+
+.international-note p {
+  max-width: 780px;
+
+  margin: 0;
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+/* ========================================*
+
+    Technical Expertise
+
+    ======================================== \*/
+
+.skills-section {
+  padding: 110px 5%;
+
+  background: linear-gradient(
+    180deg,
+    rgba(35, 27, 49, 0.26) 0%,
+    rgba(23, 19, 31, 0.15) 55%,
+    rgba(11, 11, 13, 0.04) 100%
+  );
+}
+
+.skills-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.skill-card {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  padding: 32px;
+
+  border: 1px solid #302b38;
+
+  border-radius: 12px;
+
+  background: rgba(22, 19, 29, 0.7);
+
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.skill-card:hover {
+  border-color: #665487;
+
+  background: rgba(35, 27, 49, 0.85);
+
+  transform: translateY(-3px);
+}
+
+.skill-card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 32px;
+}
+
+.skill-card-number {
+  color: #898296;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+.skill-card-symbol {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  border: 1px solid #40364f;
+
+  border-radius: 9px;
+
+  background: rgba(126, 92, 210, 0.09);
+
+  color: #b8a4ff;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.skill-card h3 {
+  margin: 0 0 16px;
+
+  color: #f5f5f7;
+
+  font-size: 22px;
+
+  font-weight: 650;
+
+  line-height: 1.25;
+
+  letter-spacing: -0.025em;
+}
+
+.skill-description {
+  margin: 0;
+
+  color: #babac4;
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+.skill-technologies {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: auto;
+
+  padding-top: 32px;
+}
+
+.skill-technologies span {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 10px;
+
+  border: 1px solid #37313f;
+
+  border-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.02);
+
+  color: #c8c2d4;
+
+  font-size: 12px;
+
+  line-height: 1.4;
+}
+
+/* ========================================*
+
+    Selected Engineering Work
+
+    ======================================== \*/
+
+.projects-section {
+  padding: 110px 5% 140px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(27, 23, 36, 0.14) 0%,
+    rgba(11, 11, 13, 0) 55%
+  );
+}
+
+.projects-list {
+  display: grid;
+
+  gap: 48px;
+}
+
+.project-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #302b38;
+
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(42, 31, 62, 0.35),
+    rgba(15, 14, 19, 0.5) 55%
+  );
+}
+
+.project-card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  padding: 28px 36px;
+
+  border-bottom: 1px solid #302b38;
+}
+
+.project-number {
+  color: #b8a4ff;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.6px;
+}
+
+.project-period {
+  color: #9d9da9;
+
+  font-size: 13px;
+}
+
+.project-intro {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+
+  align-items: end;
+
+  gap: 48px;
+
+  padding: 56px 36px;
+}
+
+.project-category {
+  margin: 0 0 18px;
+
+  color: #a6a0b6;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+}
+
+.project-intro h3 {
+  max-width: 620px;
+
+  margin: 0;
+
+  font-size: clamp(32px, 4vw, 52px);
+
+  line-height: 1.1;
+
+  letter-spacing: -0.045em;
+}
+
+.project-subtitle {
+  margin: 20px 0 0;
+
+  color: #b8a4ff;
+
+  font-size: 17px;
+
+  line-height: 1.6;
+}
+
+.project-overview {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: #babac4;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.project-content {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  margin: 0 36px;
+
+  border-top: 1px solid #302b38;
+}
+
+.project-detail {
+  padding: 36px 28px 36px 0;
+
+  border-bottom: 1px solid #302b38;
+}
+
+.project-detail:nth-child(even) {
+  padding-left: 28px;
+
+  padding-right: 0;
+
+  border-left: 1px solid #302b38;
+}
+
+.project-detail-label {
+  color: #b8a4ff;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+}
+
+.project-detail p {
+  max-width: 520px;
+
+  margin: 18px 0 0;
+
+  color: #babac4;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* ========================================*
+
+    Shared Project Diagrams
+
+    ======================================== \*/
+
+.project-diagram {
+  margin: 36px;
+
+  min-width: 0;
+
+  border: 1px solid #3a3147;
+
+  border-radius: 12px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(25, 21, 35, 0.95),
+    rgba(15, 14, 20, 0.92)
+  );
+}
+
+.project-diagram-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  padding: 18px 24px;
+
+  border-bottom: 1px solid #302b38;
+
+  color: #9287a3;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 10px;
+
+  letter-spacing: 1.5px;
+}
+
+.project-diagram-flow {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 16px;
+
+  align-items: stretch;
+
+  padding: 28px 24px 24px;
+}
+
+.diagram-step {
+  display: flex;
+
+  align-items: stretch;
+
+  position: relative;
+
+  min-width: 0;
+}
+
+.diagram-node {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  min-width: 0;
+
+  width: 100%;
+
+  padding: 20px 16px;
+
+  border: 1px solid #3b3347;
+
+  border-radius: 12px;
+
+  background: rgba(35, 27, 49, 0.35);
+}
+
+.diagram-node-icon {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+
+  height: 42px;
+
+  border: 1px solid #51406b;
+
+  border-radius: 10px;
+
+  background: rgba(126, 92, 210, 0.12);
+
+  color: #c8b9ff;
+
+  font-size: 18px;
+
+  font-weight: 700;
+}
+
+.diagram-node-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #b8a4ff;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+
+  text-transform: uppercase;
+}
+
+.diagram-node h4 {
+  margin: 0 0 12px;
+
+  color: #f5f5f7;
+
+  font-size: 17px;
+
+  line-height: 1.35;
+}
+
+.diagram-node ul {
+  margin: 0;
+
+  padding-left: 18px;
+
+  color: #babac4;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.diagram-node li + li {
+  margin-top: 2px;
+}
+
+.diagram-connector {
+  position: absolute;
+
+  top: 50%;
+
+  right: -14px;
+
+  z-index: 1;
+
+  color: #b8a4ff;
+
+  font-size: 21px;
+
+  line-height: 1;
+
+  transform: translateY(-50%);
+}
+
+.project-diagram-feedback {
+  margin: 0 24px 24px;
+
+  padding: 18px 20px;
+
+  border: 1px dashed #544566;
+
+  border-radius: 10px;
+
+  background: rgba(18, 16, 25, 0.8);
+}
+
+.project-diagram-feedback-label {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  color: #b8a4ff;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.3px;
+}
+
+.project-diagram-feedback p {
+  margin: 0;
+
+  color: #babac4;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+/* ========================================*
+
+    Candidate Management GraphQL Diagram
+
+    ======================================== \*/
+
+.graphql-diagram {
+  max-width: 960px;
+
+  margin: 0 auto;
+
+  padding: 30px 24px 24px;
+}
+
+.graphql-node {
+  min-width: 0;
+
+  padding: 24px;
+
+  border: 1px solid #51406b;
+
+  border-radius: 12px;
+
+  background: rgba(35, 27, 49, 0.48);
+
+  text-align: center;
+}
+
+.graphql-main-node {
+  max-width: 490px;
+
+  margin: 0 auto;
+}
+
+.graphql-node h4 {
+  margin: 0 0 8px;
+
+  color: #f5f5f7;
+
+  font-size: 20px;
+
+  line-height: 1.35;
+}
+
+.graphql-node p {
+  margin: 0;
+
+  color: #c8c2d4;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.graphql-node-note {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #9287a3;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.graphql-vertical-arrow {
+  padding: 10px;
+
+  color: #b8a4ff;
+
+  font-size: 26px;
+
+  text-align: center;
+}
+
+.graphql-branches {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  padding: 12px 0;
+
+  color: #b8a4ff;
+
+  font-size: 26px;
+
+  text-align: center;
+}
+
+.graphql-paths {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+.graphql-path {
+  min-width: 0;
+}
+
+.graphql-path-label {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #b8a4ff;
+
+  font-family: ui-monospace, Consolas, monospace;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+
+  text-align: center;
+}
+
+.graphql-path .graphql-node {
+  border-color: #3b3347;
+}
+
+.graphql-path-note {
+  margin: 18px 0 0;
+
+  color: #a9a3b3;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  text-align: center;
+}
+
+.graphql-note {
+  margin: 30px 0 0;
+}
+
+/* ========================================*
+
+    Project Footer
+
+    ======================================== \*/
+
+.project-footer {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  gap: 24px;
+
+  padding: 0 36px 36px;
+}
+
+.project-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+}
+
+.project-tags span {
+  padding: 7px 12px;
+
+  border: 1px solid #37313f;
+
+  border-radius: 5px;
+
+  color: #c8c2d4;
+
+  font-size: 12px;
+}
+
+.project-confidentiality {
+  color: #898296;
+
+  font-size: 12px;
+}
+
+/* ========================================*
+
+    Responsive Layout — Tablet
+
+    ======================================== \*/
+
+@media (max-width: 1050px) {
+  .site-header {
+    gap: 16px;
+  }
+
+  .site-header nav {
+    gap: 20px;
+  }
+
+  .header-actions {
+    gap: 8px;
+  }
+
+  .header-social-links {
+    gap: 0;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .project-diagram-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .diagram-step:nth-child(2) .diagram-connector {
+    display: none;
+  }
+
+  .diagram-step:nth-child(-n + 2) {
+    margin-bottom: 12px;
+  }
+}
+
+/* ========================================*
+
+    Responsive Layout — Mobile
+
+    ======================================== \*/
+
+@media (max-width: 700px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  .site-header {
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    gap: 4px 12px;
+
+    min-height: 0;
+
+    padding: 10px 5% 0;
+  }
+
+  .brand {
+    font-size: 16px;
+  }
+
+  .header-actions {
+    gap: 5px;
+  }
+
+  .site-header .social-icon-link {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-icon-link img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .contact-link {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .site-header nav {
+    grid-column: 1 / -1;
+
+    display: flex;
+
+    width: 100%;
+
+    min-width: 0;
+
+    gap: 22px;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+
+    padding-bottom: 2px;
+
+    scrollbar-width: none;
+  }
+
+  .site-header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-navigation .nav-link {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .hero {
+    padding-block: 100px;
+  }
+
+  .introduction {
+    font-size: 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 40px;
+  }
+
+  .experience-section {
+    padding-block: 72px;
+  }
+
+  .experience-item {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .experience-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .international-note {
+    padding: 24px;
+  }
+
+  .international-note p {
+    font-size: 16px;
+  }
+
+  .skills-section {
+    padding-block: 72px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skill-card {
+    padding: 26px;
+  }
+
+  .skill-card-header {
+    margin-bottom: 24px;
+  }
+
+  .skill-technologies {
+    margin-top: 0;
+    padding-top: 24px;
+  }
+
+  .projects-section {
+    padding: 72px 5% 100px;
+  }
+
+  .projects-list {
+    gap: 28px;
+  }
+
+  .project-card-top {
+    padding: 24px;
+  }
+
+  .project-intro {
+    padding: 36px 24px;
+  }
+
+  .project-content {
+    grid-template-columns: 1fr;
+    margin: 0 24px;
+  }
+
+  .project-detail,
+  .project-detail:nth-child(even) {
+    padding: 26px 0;
+    border-left: none;
+  }
+
+  .project-diagram {
+    margin: 24px;
+  }
+
+  .project-diagram-header {
+    padding: 16px 18px;
+  }
+
+  .project-diagram-flow {
+    grid-template-columns: 1fr;
+    padding: 20px 18px;
+  }
+
+  .diagram-step:nth-child(-n + 2) {
+    margin-bottom: 0;
+  }
+
+  .diagram-node {
+    flex-direction: row;
+    padding: 18px 16px;
+  }
+
+  .diagram-node-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .diagram-node h4 {
+    font-size: 16px;
+  }
+
+  .diagram-connector {
+    top: auto;
+    bottom: -23px;
+    right: 50%;
+    transform: translateX(50%) rotate(90deg);
+  }
+
+  .project-diagram-feedback {
+    margin: 0 18px 18px;
+    padding: 16px;
+  }
+
+  .graphql-diagram {
+    padding: 22px 18px 18px;
+  }
+
+  .graphql-paths {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .graphql-branches {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .graphql-branches span:last-child {
+    display: none;
+  }
+
+  .project-footer {
+    padding: 0 24px 28px;
+  }
+}
+
+/* ========================================*
+
+    Reduced Motion
+
+    ======================================== \*/
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skill-card,
+  .site-navigation .nav-link,
+  .site-navigation .nav-link::after {
+    transition: none;
+  }
+
+  .skill-card:hover {
+    transform: none;
+  }
+}
