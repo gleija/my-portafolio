@@ -1,30 +1,18 @@
 import Header from "./components/Header/Header";
-import "./App.css";
+import { About } from "./sections/About/About";
 import { experience } from "./sections/Experience/experience.data";
 import { skills } from "./sections/Skills/skills.data";
 import { projects } from "./sections/Projects/projects.data";
 import { DesignSystemDiagram } from "./sections/Projects/components/DesignSystemDiagram/DesignSystemDiagram";
 import { CandidateManagementDiagram } from "./sections/Projects/components/CandidateManagementDiagram/CandidateManagementDiagram";
 
+import "./App.css";
+
 const App = (): React.JSX.Element => {
   return (
     <main className="portfolio">
       <Header />
-      <section className="hero" id="about">
-        <p className="eyebrow">SOFTWARE ENGINEER / FRONTEND SPECIALIST</p>
-        <h1>
-          Software
-          <br />
-          <em>is craft.</em>
-        </h1>
-        <p className="introduction">
-          I'm Gary, a software engineer with over 10 years of experience
-          building web applications, design systems, and developer tools.
-        </p>
-        <a className="primary-button" href="#experience">
-          Explore my work →
-        </a>
-      </section>
+      <About />
       <section className="experience-section" id="experience">
         <div className="section-heading">
           <p className="eyebrow">01 / PROFESSIONAL EXPERIENCE</p>
